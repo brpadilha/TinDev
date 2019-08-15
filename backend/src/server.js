@@ -1,6 +1,7 @@
 const express = require("express");
 const routes = require("./routes");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 const server = express();
 
@@ -11,6 +12,7 @@ mongoose.connect(
   }
 );
 
+server.use(cors());
 server.use(express.json());
 server.use(routes); //usando as configurações do arquivo routes
 
